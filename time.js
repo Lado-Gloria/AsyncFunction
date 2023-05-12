@@ -19,17 +19,17 @@ wordwithdelay("Beautiful Gloria",2000)
 
 
 const userIds = [2, 4, 6, 8]; 
-
 async function UserData(userIds) {
   for (const x of userIds) {
     try {
       const Data = await getUserData(x);
       console.log(Data);
     } catch (error) {
-      console.error(`Error fetching user data for ID ${x}:`, error);
+      console.error(`${x}:Error fetching user data for ID ${x}:`, error);
     }
   }
 }
+
 
 UserData(userIds);
 
@@ -48,22 +48,20 @@ UserData(userIds);
 //   error. Write a function that calls performTask()
 //    and logs a custom success message if the task is 
 //    successful, and a custom error message if there's an error.
-async function Task() {
-    try {
-      await performTask();
-      console.log('Task completed successfully!');
-    } catch (error) {
-      console.error('An error occurred while performing the task:', error);
-    }
+
+
+let success=true;
+
+const performTask = async()=>{
+    let result = await promise;
+    console.log({result});
+}
+let promise =new Promise(function(resolve,reject){
+  if(success){
+      setTimeout(()=>{resolve("My life is sucessful")});
   }
-  Task()
-
-
-  (function() {
-    performTask().then(() => {
-        console.log('Task completed successfully!');
-      })
-      .catch((error) => {
-        console.error('An error occurred while performing the task:', error);
-      });
-  })();
+  else{
+      setTimeout(()=>{reject("Am working on my life")});
+  }
+});
+performTask();
